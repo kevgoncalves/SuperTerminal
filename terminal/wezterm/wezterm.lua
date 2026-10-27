@@ -103,7 +103,7 @@ config.status_update_interval = 250
 
 -- ---- shell: pwsh; KVN_COMPACT = os shells nao desenham o fastfetch (esta no cabecalho) ----
 config.default_prog = { PWSH, '-NoLogo' }
-config.default_cwd = wezterm.home_dir   -- (o agente abre o WezTerm pelo explorer.exe, que nao passa a pasta)
+config.default_cwd = wezterm.home_dir   -- (o agente abre o WezTerm na pasta da tarefa que o arrancou, nao na home)
 -- WSLENV: o KVN_COMPACT chega tambem ao zsh do WSL (o cabecalho ja esta em cima: o zsh nao desenha o seu)
 config.set_environment_variables = { SUPERTERMINAL = '1', KVN_COMPACT = '1', WSLENV = 'KVN_COMPACT:SUPERTERMINAL:WEZTERM_UNIX_SOCKET:WEZTERM_PANE', POWERSHELL_UPDATECHECK = 'Off', POWERSHELL_TELEMETRY_OPTOUT = '1' }
 -- sem o agent proprio do WezTerm: ele punha SSH_AUTH_SOCK num ficheiro que nao existe e o ssh deixava de ver o

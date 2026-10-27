@@ -87,9 +87,9 @@ static class Agent {
 
     static IntPtr Launch() {
         if (!File.Exists(Gui)) return IntPtr.Zero;
-        // pelo explorer.exe: o WezTerm abre sempre como utilizador normal, mesmo com o agente elevado (o agente corre
-        // elevado para conseguir mostrar / esconder qualquer janela; um programa normal nao mexe numa janela de admin)
-        Process.Start(new ProcessStartInfo("explorer.exe", "\"" + Gui + "\"") { UseShellExecute = false });
+        // direto: o WezTerm herda os direitos do agente. Nos PCs do Kev o agente arranca elevado (tarefa TerminalKeepAlive)
+        // e o terminal fica sempre como admin (Kev, 2026-10-27); arrancado pela pasta Startup, fica sem admin
+        Process.Start(new ProcessStartInfo(Gui) { UseShellExecute = false });
         // mal a janela aparece, esconde-a ate o WezTerm acabar de arrancar (ecra inteiro, cabecalho, shell): assim
         // aparece ja pronta, sem os saltos e redesenhos do arranque
         for (int i = 0; i < 200; i++) {

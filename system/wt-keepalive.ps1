@@ -6,7 +6,7 @@ $keys = New-Object -ComObject WScript.Shell
 # home limpa: volta a esconder o que os programas foram criando (ver home-tidy.ps1)
 & "$HOME\.config\home-tidy.ps1"
 # SuperTerminal (WezTerm) instalado neste PC: arranca o agente dele (Ctrl+Alt+T), elevado como esta tarefa, para conseguir
-# mostrar / esconder qualquer janela do WezTerm (ele abre o WezTerm sempre como utilizador normal). O Windows Terminal
+# mostrar / esconder qualquer janela do WezTerm; o WezTerm que ele abre herda o admin (Kev quer o terminal sempre elevado). O Windows Terminal
 # ja nao e aberto aqui (senao ficava com o Ctrl+Alt+T).
 $agent = "$HOME\.local\superterminal\agent.exe"
 # versao nova deixada enquanto o agente corria (o .exe em uso nao pode ser substituido): troca-se aqui, antes de arrancar
